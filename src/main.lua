@@ -47,10 +47,13 @@ local function displayItems()
 	local xPos = 2
 	local yPos = 5
 	
-	local items = parser.getItems()
-	for key, value in pairs(items) do
-		functions.debug(key, " ", value)
-	end
+	-- headers
+	monitor.setCursorPos(xPos, yPos)
+	monitor.write("Title")
+	monitor.setCursorPos(xPos + 100, yPos)
+	monitor.write("Date")
+	
+	yPos = yPos + 1
 end
 
 local function init()
