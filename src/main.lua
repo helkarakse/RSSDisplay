@@ -64,7 +64,7 @@ local function displayItems()
 		monitor.setCursorPos(xPos, yPos)
 		monitor.write(functions.truncate(title, titleLimit))
 		monitor.setCursorPos(xPos + titleLimit, yPos)
-		monitor.write(pubDate)
+		monitor.write(parser.convertDate(pubDate))
 		
 		yPos = yPos + 1
 	end
