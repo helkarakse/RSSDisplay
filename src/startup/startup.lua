@@ -10,9 +10,9 @@
 
 -- File array of github links
 local fileArray = {
-	{link = "https://raw.github.com/helkarakse/LuaLibs/master/src/functions.lua", file = "functions"},
-	{link = "https://raw.github.com/helkarakse/LuaLibs/master/src/xml.lua", file = "xml"},
-	{link = "https://raw.github.com/helkarakse/RSSDisplay/master/src/parser.lua", file = "parser"},
+	{link = "https://raw.github.com/helkarakse/LuaLibs/master/src/common/functions.lua", file = "functions"},
+	{link = "https://raw.github.com/helkarakse/LuaLibs/master/src/libs/libXml.lua", file = "xml"},
+	{link = "https://raw.github.com/helkarakse/LuaLibs/master/src/parser/rssParser.lua", file = "parser"},
 	{link = "https://raw.github.com/helkarakse/RSSDisplay/master/src/main.lua", file = "main"}
 }
 
