@@ -63,16 +63,21 @@ function parseItem(item)
 end
 
 -- Converts the date from RFC 822 to a shorter version
+-- Crippled due to conflicts with os.time and os.date
 function convertDate(inputDate)
-	functions.debug(inputDate)
+	local monthArray = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}
 	local pattern = "(%a+)%, (%d+) (%a+) (%d+) (%d+):(%d+):(%d+) ([%+%-])(%d+)"
 	local xDayName, xDay, xMonth, xYear, xHour, xMin, xSec, xOffset, xOffsetAmount = inputDate:match(pattern)
-	functions.debug(xMonth)
-	local timestamp = os.time({year = xYear, month = xMonth, day = xDay, hour = xHour, min = xMin, sec = xSec})
+	-- Commented out due to conflict with cc os.time()
+	-- local timestamp = os.time({year = xYear, month = xMonth, day = xDay, hour = xHour, min = xMin, sec = xSec})
+	
     if (xOffset == "-") then
     	xOffsetAmount = xOffsetAmount * -1
     end
     
-    timestamp = timestamp + xOffsetAmount
-    return os.date("%c", timestamp)
+    -- Commented out due to conflict with cc os.date()
+	-- timestamp = timestamp + xOffsetAmount
+	-- return os.date("%c", timestamp)
+	
+	return xDay .. " " .. xMonth .. " " .. xYear .. " " .. xHour .. ":" .. xMin
 end
