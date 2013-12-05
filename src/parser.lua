@@ -45,7 +45,7 @@ function getItems(id)
 	if (specificId == 0) then
 		-- no specific id passed, assume return all
 		local array = {}
-		for i = tonumber(id) + 5, #tagChannel[1] do
+		for i = specificId + 5, #tagChannel[1] do
 			table.insert(array, tagChannel[1][i])
 		end
 		
