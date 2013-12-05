@@ -61,3 +61,15 @@ end
 function parseItem(item)
 	return item[1][1], item[2][1], item[3][1], item[4][1], item[5][1]
 end
+
+-- Converts the date from RFC 822 to a shorter version
+function convertDate(inputDate)
+    -- Wed, 04 Dec 2013 03:40:05 +0000
+	local pattern = "(%a+)%, (%d+) (%a+) (%d+) (%d+):(%d+):(%d+) ([%+%-])(%d+)"
+	local xDayName, xDay, xMonth, xYear, xHour, xMin, xSec, xOffset, xOffsetAmount = inputDate:match(pattern)
+    local timestamp = os.time({year = xYear, month = xMonth, 
+        day = xDay, hour = xHour, min = xMin, sec = xSec})
+    if xOffset == "-" then xOffsetAmount = xOffsetAmount * -1 end
+    timestamp = timestamp + xOffsetAmount
+    return os.date("%c", timestamp)
+end
