@@ -31,7 +31,20 @@ end
 local function init()
 	local xmlSuccess = getXML()
 	if (xmlSuccess) then
-		
+		-- find the monitor and init vars
+		local monFound, monDir = functions.locatePeripheral("monitor");
+		if (monFound == true) then
+			monitor = peripheral.wrap(monDir)
+			local screenW, screenH = monitor.getSize()
+			functions.debug("Monitor size is: ", screenW, "x", screenH)
+		else
+			-- no monitor found
+			functions.debug("A monitor is required to use this program.")
+			return
+		end
+	else
+		functions.debug("No xml file. Terminating.")
+		return
 	end
 end
 
