@@ -10,14 +10,13 @@
 
 -- File array of github links
 local fileArray = {
-	{link = "https://raw.github.com/helkarakse/TickProfilerDisplay/master/src/functions.lua", file = "functions"},
-	{link = "https://raw.github.com/helkarakse/TickProfilerDisplay/master/src/json.lua", file = "json"},
-	{link = "https://raw.github.com/helkarakse/TickProfilerDisplay/master/src/parser.lua", file = "parser"},
-	{link = "https://raw.github.com/helkarakse/TickProfilerDisplay/master/src/glass/glassLite.lua", file = "glassLite"}
+	{link = "https://raw.github.com/helkarakse/LuaLibs/master/src/functions.lua", file = "functions"},
+	{link = "https://raw.github.com/helkarakse/LuaLibs/master/src/xml.lua", file = "xml"},
+	{link = "https://raw.github.com/helkarakse/RSSDisplay/master/src/main.lua", file = "main"}
 }
 
 -- This filename is the file that will be executed
-local indexFile = "glassLite"
+local indexFile = "main"
 
 -- Set to true to overwrite files
 local overwrite = true
