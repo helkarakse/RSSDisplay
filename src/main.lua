@@ -69,6 +69,7 @@ local function init()
 		end
 		
 		displayHeader()
+		displayItems()
 	else
 		functions.debug("No xml file. Terminating.")
 		return
