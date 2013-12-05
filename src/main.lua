@@ -28,6 +28,20 @@ local function getXML()
 	end
 end
 
+local function displayHeader()
+	local xPos = 2
+	local yPos = 2
+	
+	monitor.setCursorPos(xPos, yPos)
+	monitor.write("OTE-Gaming RSS Feed")
+	monitor.setCursorPos(xPos, yPos + 1)
+	monitor.write("Powered by Helkarakse")
+	monitor.setCursorPos(xPos, yPos + 3)
+	monitor.write("Last Updated:")
+	monitor.setCursorPos(xPos + 12, yPos + 3)
+	monitor.write(parser.getPubDate())
+end
+
 local function init()
 	local xmlSuccess = getXML()
 	if (xmlSuccess) then
@@ -43,10 +57,7 @@ local function init()
 			return
 		end
 		
-		functions.debug(parser.getTitle())
-		functions.debug(parser.getLink())
-		functions.debug(parser.getPubDate())
-		functions.debug(#parser.getItems())
+		displayHeader()
 	else
 		functions.debug("No xml file. Terminating.")
 		return
