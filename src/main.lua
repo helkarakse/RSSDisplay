@@ -54,6 +54,19 @@ local function displayItems()
 	monitor.write("Date")
 	
 	yPos = yPos + 1
+	
+	local items = parser.getItems()
+	for key, value in pairs(items) do
+		local title, link, desc, pubDate, guid = parser.parseItem(value)
+		
+		-- data display
+		monitor.setCursorPos(xPos, yPos)
+		monitor.write(functions.truncate(title, 100))
+		monitor.setCursorPos(xPos + 100, yPos)
+		monitor.write(pubDate)
+		
+		yPos = yPos + 1
+	end
 end
 
 local function init()
