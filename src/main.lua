@@ -45,12 +45,13 @@ end
 
 local function displayItems()
 	local xPos = 2
-	local yPos = 5
+	local yPos = 6
+	local titleLimit = 50
 	
 	-- headers
 	monitor.setCursorPos(xPos, yPos)
 	monitor.write("Title")
-	monitor.setCursorPos(xPos + 100, yPos)
+	monitor.setCursorPos(xPos + titleLimit, yPos)
 	monitor.write("Date")
 	
 	yPos = yPos + 1
@@ -61,8 +62,8 @@ local function displayItems()
 		
 		-- data display
 		monitor.setCursorPos(xPos, yPos)
-		monitor.write(functions.truncate(title, 100))
-		monitor.setCursorPos(xPos + 100, yPos)
+		monitor.write(functions.truncate(title, titleLimit))
+		monitor.setCursorPos(xPos + titleLimit, yPos)
 		monitor.write(pubDate)
 		
 		yPos = yPos + 1
