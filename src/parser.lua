@@ -40,6 +40,7 @@ function getPubDate()
 	return tagChannel[1][4][1]
 end
 
+-- Gets a specific item given an id or all items given no id
 function getItems(id)
 	local specificId = tonumber(id) or 0
 	if (specificId == 0) then
@@ -54,4 +55,9 @@ function getItems(id)
 		-- return specific item
 		return tagChannel[1][id + 5]
 	end
+end
+
+-- Returns the title, link, description, date and guid for the item
+function parseItem(item)
+	return item[1][1], item[1][2], item[1][3], item[1][4], item[1][5]
 end
