@@ -45,7 +45,7 @@ end
 
 local function displayItems()
 	local xPos = 2
-	local yPos = 6
+	local yPos = 7
 	local titleLimit = 50
 	
 	-- headers
