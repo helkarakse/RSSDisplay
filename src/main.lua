@@ -40,7 +40,7 @@ local function displayHeader()
 	monitor.setCursorPos(xPos, yPos + 3)
 	monitor.write(lastUpdatedString)
 	monitor.setCursorPos(xPos + #lastUpdatedString, yPos + 3)
-	monitor.write(parser.getPubDate())
+	monitor.write(parser.convertDate(parser.getPubDate()))
 end
 
 local function displayItems()
@@ -70,6 +70,17 @@ local function displayItems()
 	end
 end
 
+local refreshLoop = function()
+	while true do
+		getXML()
+		functions.debug("Refreshing data.")
+		displayHeader()
+		displayItems()
+		functions.debug("Refreshing screen.")
+		sleep(60)
+	end
+end
+
 local function init()
 	local xmlSuccess = getXML()
 	if (xmlSuccess) then
@@ -87,6 +98,8 @@ local function init()
 		
 		displayHeader()
 		displayItems()
+		
+		parallel.waitForAll(refreshLoop)
 	else
 		functions.debug("No xml file. Terminating.")
 		return
