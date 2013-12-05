@@ -31,7 +31,6 @@ end
 local function displayHeader()
 	local xPos = 2
 	local yPos = 2
-	
 	local lastUpdatedString = "Last Updated: "
 	
 	monitor.setCursorPos(xPos, yPos)
@@ -42,6 +41,16 @@ local function displayHeader()
 	monitor.write(lastUpdatedString)
 	monitor.setCursorPos(xPos + #lastUpdatedString, yPos + 3)
 	monitor.write(parser.getPubDate())
+end
+
+local function displayItems()
+	local xPos = 2
+	local yPos = 5
+	
+	local items = parser.getItems()
+	for key, value in pairs(items) do
+		functions.debug(key, " ", value)
+	end
 end
 
 local function init()
