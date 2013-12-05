@@ -42,6 +42,11 @@ local function init()
 			functions.debug("A monitor is required to use this program.")
 			return
 		end
+		
+		functions.debug(parser.getTitle())
+		functions.debug(parser.getLink())
+		functions.debug(parser.getPubDate())
+		functions.debug(#parser.getItems())
 	else
 		functions.debug("No xml file. Terminating.")
 		return
