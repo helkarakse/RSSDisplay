@@ -32,13 +32,15 @@ local function displayHeader()
 	local xPos = 2
 	local yPos = 2
 	
+	local lastUpdatedString = "Last Updated: "
+	
 	monitor.setCursorPos(xPos, yPos)
 	monitor.write("OTE-Gaming RSS Feed")
 	monitor.setCursorPos(xPos, yPos + 1)
 	monitor.write("Powered by Helkarakse")
 	monitor.setCursorPos(xPos, yPos + 3)
-	monitor.write("Last Updated:")
-	monitor.setCursorPos(xPos + 12, yPos + 3)
+	monitor.write(lastUpdatedString)
+	monitor.setCursorPos(xPos + #lastUpdatedString, yPos + 3)
 	monitor.write(parser.getPubDate())
 end
 
