@@ -46,7 +46,7 @@ end
 local function displayItems()
 	local xPos = 2
 	local yPos = 7
-	local titleLimit = 50
+	local titleLimit = 40
 	
 	-- headers
 	monitor.setCursorPos(xPos, yPos)
@@ -88,6 +88,7 @@ local function init()
 		local monFound, monDir = functions.locatePeripheral("monitor");
 		if (monFound == true) then
 			monitor = peripheral.wrap(monDir)
+			monitor.clear()
 			local screenW, screenH = monitor.getSize()
 			functions.debug("Monitor size is: ", screenW, "x", screenH)
 		else
